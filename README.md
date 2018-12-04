@@ -1,4 +1,4 @@
-# Flipping animation for Fitbit
+# Flip animation for Fitbit
 
 This library allows you create flip animations in Fitbit apps and clockfaces.
 
