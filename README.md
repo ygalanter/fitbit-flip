@@ -61,4 +61,4 @@ Launch your app and enjoy.
 
 # Demo
 
-A demo is available [here](https://github.com/gregoiresage/fitbit-flip-demo)
+A demo is available [here](https://github.com/ygalanter/fitbit-flip-demo)
