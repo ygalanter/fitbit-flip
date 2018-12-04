@@ -3,19 +3,14 @@
         <image class="fitbit-static-image" x="0" y="0" />
         <image class="fitbit-static-image" x="0" />
 
-       <g>
-            <image class="fitbit-flip-image" x="0" y="0" />
-            <!-- <animateTransform class="fitbit-anim" attributeType="translate" from="0,0" to="0,67"  begin="enable" dur="1" final="keep" /> -->
-            <animateTransform class="fitbit-anim" attributeType="scale" from="1,1,1" to="1,0,1"  begin="enable"  dur="1" final="keep" />
-        </g>
+        <image class="fitbit-flip-image" x="0" y="0">
+           <animate class="fitbit-anim" attributeName="y" from="0" to="67" begin="enable" dur="1" final="keep" />
+           <animate class="fitbit-anim" attributeName="height" from="67" to="0" begin="enable" dur="1" final="keep" />
+        </image>
     
            
-        
-       <g>
-            <image class="fitbit-flip-image" x="0" />
-            <!-- <animateTransform class="fitbit-anim" attributeType="translate" from="0,67" to="0,0" begin="enable" dur="1" final="keep" /> -->
-            <animateTransform class="fitbit-anim" attributeType="scale" from="1,0,1" to="1,1,1"  begin="enable" dur="1" final="keep"  />
-        </g>
-  
+        <image class="fitbit-flip-image" x="0">
+            <animate class="fitbit-anim" attributeName="height" from="0" to="67" begin="enable" dur="1" final="keep" />
+        </image> 
        
     </symbol>
