@@ -33,7 +33,7 @@ Use a `fitbit-flip` symbol in your `index.gui` file:
     <use href="#fitbit-flip" id="hour2" x="90" y="65" />
     <use href="#fitbit-flip" id="minute1" x="190" y="65" />
     <use href="#fitbit-flip" id="minute2" x="265" y="65" />
-    <!-- Each element represents its own animation -->
+    <!-- Each element represents a separate animation -->
 ```
 
 Import and use the library in your `app/index.js`:
@@ -42,17 +42,17 @@ Import and use the library in your `app/index.js`:
 
     const hour1 = new FitbitFlip({
         id: "hour1", // id of GUI element
-        img_width: 84, //width of images representing 2 parts of animation
-        img_height: 67 //height of images representing 2 parts of animation
+        img_width: 84, //width of image to animate (there will be 2 per element)
+        img_height: 67 //height of image to animate (there will be 2 per element)
     });
 
     //assign images to animate
-    elem.startStaticImage = `new_top.png`; 
-    elem.endImage = `new_bottom.png`; 
-    elem.startImage = `old_top.png`; 
-    elem.endStaticImage = `old_bottom.png`; 
+    hour1.startStaticImage = `new_top.png`; // new image to show (first part)
+    hour1.endImage = `new_bottom.png`;  // new image to show (second part)
+    hour1.startImage = `old_top.png`;  // old image (first part)
+    hour1.endStaticImage = `old_bottom.png`; // old image (second part)
 
-    elem.flip();    // animate
+    hour1.flip();    // animate
 
 
 ```
