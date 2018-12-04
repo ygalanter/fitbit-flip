@@ -29,21 +29,18 @@ You still need to modify the `resources/widgets.gui` file to add the link to `fi
 
 Use a `fitbit-flip` symbol in your `index.gui` file:
 ``` xml
-    <use href="#fitbit-flip" id="hour1" x="0" y="65" />
-    <use href="#fitbit-flip" id="hour2" x="90" y="65" />
-    <use href="#fitbit-flip" id="minute1" x="190" y="65" />
-    <use href="#fitbit-flip" id="minute2" x="265" y="65" />
-    <!-- Each element represents a separate animation -->
+    <use href="#fitbit-flip" id="elem" x="20" y="20" />
 ```
 
 Import and use the library in your `app/index.js`:
 ``` javascript
     import { FitbitFlip } from 'fitbit-flip';
 
-    const hour1 = new FitbitFlip({
+    const elem = new FitbitFlip({
         id: "hour1", // id of GUI element
         img_width: 84, //width of image to animate (there will be 2 per element)
-        img_height: 67 //height of image to animate (there will be 2 per element)
+        img_height: 67, //height of image to animate (there will be 2 per element)
+        duration: 1 // time in seconds to complete half animation
     });
 
     //assign images to animate
@@ -53,8 +50,6 @@ Import and use the library in your `app/index.js`:
     hour1.endStaticImage = `old_bottom.png`; // old image (second part)
 
     hour1.flip();    // animate
-
-
 ```
 
 Launch your app and enjoy.
