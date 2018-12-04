@@ -1,0 +1,41 @@
+{
+  "scripts": {
+    "postinstall": "node ./bin/install.js",
+    "build": "babel source --out-dir .",
+    "prepublish": "npm run build"
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ]
+    ]
+  },
+  "name": "fitbit-flip",
+  "description": "This library to create flip animations in Fitbit clockfaces and apps.",
+  "version": "0.1.0",
+  "main": "fitbit-flip.js",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ygalanter/fitbit-flip.git"
+  },
+  "keywords": [
+    "fitbitdev"
+  ],
+  "author": "Yuriy Galanter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ygalanter/fitbit-flip/issues"
+  },
+  "homepage": "https://github.com/ygalanter/fitbit-flip#readme",
+  "dependencies": {
+    "readline2": "^1.0.1"
+  }
+}
