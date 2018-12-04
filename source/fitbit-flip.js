@@ -1,25 +1,13 @@
 import document from 'document';
 
-export function FitbitFlip({id, img_width, img_height}) {
-
-    
-    function customAnimation(element, prop, from, to, dur) {
-      let value = from;
-
-      let anim = setInterval(() => {
-        element[prop] = value;
-        value += (to - from)/(dur*1000);
-
-        if ((to < from && value <= to) || (to > from && value >=to)) {
-          clearInterval(anim)
-        }
-        
-      }, dur);
-
-    }
+export function FitbitFlip({id, img_width, img_height, duration}) {
 
     const START_IMAGE = 0;
     const END_IMAGE = 1;
+
+    const START_ANIM_MOVE = 0;
+    const START_ANIM_RESIZE = 1;
+    const END_ANIM_RESIZE = 2;
 
     // getting handle on main element and child images
     this.root       = typeof id === 'string' ? document.getElementById(id) : id;
@@ -32,6 +20,12 @@ export function FitbitFlip({id, img_width, img_height}) {
     this.images[END_IMAGE].width = img_width; this.images[END_IMAGE].height = img_height;
     this.images[END_IMAGE].y = img_height;
 
+    //animation properties
+    this.animations[START_ANIM_MOVE].from = 0; this.animations[START_ANIM_MOVE].to = img_height; this.animations[START_ANIM_MOVE].dur = duration;
+    this.animations[START_ANIM_RESIZE].from = img_height; this.animations[START_ANIM_RESIZE].to = 0; this.animations[START_ANIM_RESIZE].dur = duration;
+    this.animations[END_ANIM_RESIZE].from = 0; this.animations[END_ANIM_RESIZE].to = img_height; this.animations[END_ANIM_RESIZE].dur = duration;
+
+
     // images sizes and positions according to constructor
     this.static_images[START_IMAGE].width = img_width; this.static_images[START_IMAGE].height = img_height; 
     this.static_images[END_IMAGE].width = img_width; this.static_images[END_IMAGE].height = img_height;
@@ -39,14 +33,11 @@ export function FitbitFlip({id, img_width, img_height}) {
     
 
     this.flip = () => {
-        this.images[START_IMAGE].parent.animate("enable");
-        customAnimation(this.images[START_IMAGE].parent.groupTransform.translate, 'y', 0, img_height, 1);
-
+        this.images[START_IMAGE].animate("enable");
         setTimeout(() => {
           this.images[END_IMAGE].style.display = 'inline';
-          this.images[END_IMAGE].parent.animate("enable");
-          customAnimation(this.images[END_IMAGE].parent.groupTransform.translate, 'y', img_height, 0, 1);
-        },1000)
+          this.images[END_IMAGE].animate("enable");
+        },duration * 1000)
     }
 
     Object.defineProperty(this, 'startImage', {
