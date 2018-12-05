@@ -37,19 +37,21 @@ Import and use the library in your `app/index.js`:
     import { FitbitFlip } from 'fitbit-flip';
 
     const elem = new FitbitFlip({
-        id: "hour1", // id of GUI element
+        id: "elem", // id of GUI element
         img_width: 84, //width of image to animate (there will be 2 per element)
         img_height: 67, //height of image to animate (there will be 2 per element)
-        duration: 1 // time in seconds to complete half animation
+        duration: 1 // time in seconds to complete half animation (optional, if omited - 1 second will be assumed)
     });
 
     //assign images to animate
-    hour1.startStaticImage = `new_top.png`; // new image to show (first part)
-    hour1.endImage = `new_bottom.png`;  // new image to show (second part)
-    hour1.startImage = `old_top.png`;  // old image (first part)
-    hour1.endStaticImage = `old_bottom.png`; // old image (second part)
+    elem.startStaticImage = `new_top.png`; // new image to show (first part)
+    elem.endImage = `new_bottom.png`;  // new image to show (second part)
+    elem.startImage = `old_top.png`;  // old image (first part)
+    elem.endStaticImage = `old_bottom.png`; // old image (second part)
+    
+    elem.duration = 2; // duration (time in seconds to complete half animation) can also be changed if needed 
 
-    hour1.flip();    // animate
+    elem.flip();    // animate
 ```
 
 Launch your app and enjoy.
