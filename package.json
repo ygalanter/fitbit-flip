@@ -16,7 +16,7 @@
   },
   "name": "fitbit-flip",
   "description": "This library to create flip animations in Fitbit clockfaces and apps.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "fitbit-flip.js",
   "devDependencies": {
     "babel-cli": "^6.26.0",
